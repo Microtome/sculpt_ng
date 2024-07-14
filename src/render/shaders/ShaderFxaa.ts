@@ -2,7 +2,7 @@ import ShaderBase from './ShaderBase';
 import Attribute from '../Attribute';
 import getOptionsURL from '../../misc/getOptionsURL';
 import fxaaGLSL from './glsl/fxaa.glsl';
-import { IShaderBase } from './IShaderBase';
+import { IShaderBase } from '.';
 
 interface IShaderFxaa {
   FILMIC: boolean

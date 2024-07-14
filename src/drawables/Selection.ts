@@ -1,7 +1,7 @@
 import { mat3, mat4, vec3 } from 'gl-matrix';
 import Buffer from '../render/Buffer';
-import ShaderLib from '../render/ShaderLib';
 import Enums from '../misc/Enums';
+import { ShaderSelection } from '../render/shaders';
 
 
 
@@ -212,7 +212,7 @@ class Selection {
 
     var drawCircle = main._action === Enums.Action.NOTHING;
     vec3.set(this._color, 0.8, drawCircle && pickedMesh ? 0.0 : 0.4, 0.0);
-    ShaderLib[Enums.Shader.SELECTION]
+    ShaderSelection
       .getOrCreate(this._gl)
       .draw(this, drawCircle, main.getSculptManager().getSymmetry());
 

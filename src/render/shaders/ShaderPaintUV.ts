@@ -1,6 +1,6 @@
 import ShaderBase from './ShaderBase';
 import Attribute from '../Attribute';
-import { IShaderBase } from './IShaderBase';
+import { IShaderBase } from '.';
 
 interface IShaderPaintUV {
   CHANNEL_VALUE: number

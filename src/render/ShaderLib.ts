@@ -1,22 +1,13 @@
 import Enums from '../misc/Enums';
+import {
+    IShaderBase, ShaderBackground, ShaderBlur,
+    ShaderContour, ShaderFlat, ShaderFxaa, ShaderMatcap,
+    ShaderMerge, ShaderNormal, ShaderPaintUV, ShaderPBR,
+    ShaderSelection, ShaderUV, ShaderWireframe
+} from './shaders';
 
-import ShaderPBR from './shaders/ShaderPBR';
-import ShaderMatcap from './shaders/ShaderMatcap';
-import ShaderNormal from './shaders/ShaderNormal';
-import ShaderUV from './shaders/ShaderUV';
-import ShaderWireframe from './shaders/ShaderWireframe';
-import ShaderFlat from './shaders/ShaderFlat';
-import ShaderSelection from './shaders/ShaderSelection';
 
-import ShaderBackground from './shaders/ShaderBackground';
-import ShaderMerge from './shaders/ShaderMerge';
-import ShaderFxaa from './shaders/ShaderFxaa';
-import ShaderContour from './shaders/ShaderContour';
-
-import ShaderPaintUV from './shaders/ShaderPaintUV';
-import ShaderBlur from './shaders/ShaderBlur';
-
-var ShaderLib = [];
+var ShaderLib: IShaderBase[] = [];
 
 // 3D shaders
 ShaderLib[Enums.Shader.PBR] = ShaderPBR;

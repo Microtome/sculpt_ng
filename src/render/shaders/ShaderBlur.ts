@@ -1,7 +1,7 @@
 import ShaderBase from './ShaderBase';
 import Attribute from '../Attribute';
-import { IShaderBase } from './IShaderBase';
 import Rtt from '../../drawables/Rtt';
+import { IShaderBase } from '.';
 
 interface IShaderBlur {
   INPUT_TEXTURE: Rtt | null;

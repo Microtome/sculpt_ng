@@ -2,7 +2,7 @@ import getOptionsURL from '../../misc/getOptionsURL';
 import ShaderBase from './ShaderBase';
 import Attribute from '../Attribute';
 import outlineGLSL from './glsl/outline.glsl';
-import { IShaderBase } from './IShaderBase';
+import { IShaderBase } from '.';
 
 interface IShaderContour {
   color: any

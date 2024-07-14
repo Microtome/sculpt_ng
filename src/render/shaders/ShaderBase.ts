@@ -4,7 +4,8 @@ import Utils from '../../misc/Utils';
 import Attribute from '../Attribute';
 import colorSpaceGLSL from '../../render/shaders/glsl/colorSpace.glsl';
 import curvatureGLSL from '../../render/shaders/glsl/curvature.glsl';
-import type { IShaderBase } from "./IShaderBase.d.ts"
+import { IShaderBase } from '.';
+
 
 // Again with not-quite-singleton single use
 
@@ -191,7 +192,7 @@ let ShaderBase: IShaderBase = {
 
   },
 
-  draw(mesh, main) {
+  draw(mesh, main = null) {
     var gl = mesh.getGL();
     gl.useProgram(this.program);
     this.bindAttributes(mesh);
@@ -248,7 +249,7 @@ let ShaderBase: IShaderBase = {
     return this._dummyTex;
   },
 
-  getOrCreateTexture0(gl: WebGLRenderingContext, texPath: string, main): WebGLTexture | false {
+  getOrCreateTexture0(gl: WebGLRenderingContext, texPath: string = null, main = null): WebGLTexture | false {
     if (this.texture0 != null)
       return this.texture0;
     this.texture0 = null; // trigger loading

@@ -4,6 +4,7 @@ import Utils from '../misc/Utils';
 import OctreeCell from '../math3d/OctreeCell';
 import Shader from '../render/ShaderLib';
 import RenderData from './RenderData';
+import { ShaderFlat, ShaderWireframe } from '../render/shaders';
 
 
 /*
@@ -1930,12 +1931,12 @@ abstract class Mesh {
 
   renderWireframe(main) {
     if (!this.isVisible()) return;
-    Shader[Enums.Shader.WIREFRAME].getOrCreate(this.getGL()).draw(this, main);
+    ShaderWireframe.getOrCreate(this.getGL()).draw(this, main);
   }
 
   renderFlatColor(main) {
     if (!this.isVisible()) return;
-    Shader[Enums.Shader.FLAT].getOrCreate(this.getGL()).draw(this, main);
+    ShaderFlat.getOrCreate(this.getGL()).draw(this, main);
   }
 
   /////////////////

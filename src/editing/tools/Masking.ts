@@ -4,21 +4,20 @@ import SculptBase from './SculptBase';
 import Paint from './Paint';
 import Smooth from './Smooth';
 import MeshStatic from '../../mesh/meshStatic/MeshStatic';
+import Tablet from '../../misc/Tablet';
 
 class Masking extends SculptBase {
 
-  protected hardness = 0.25;
-  protected intensity = 1.0;
-  protected negative = true;
-  protected culling = false;
-  protected idAlpha = 0;
-  protected lockPosition = false;
+  protected _intensity = 1.0;
+  protected _negative = true;
+  protected _culling = false;
+  protected _idAlpha = 0;
   protected _thickness = 1.0;
-  protected _negative = false;
+  protected _hardness = 1.0;
 
   constructor(main) {
     super(main);
-
+    this._radius = 25;
 
   }
 
