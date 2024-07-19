@@ -472,7 +472,6 @@ class Scene {
   loadTextures() {
     var self = this;
     var gl = this._gl;
-    var ShaderMatcap = ShaderMatcap;
 
     var loadTex = function (path, idMaterial) {
       var mat = new Image();
