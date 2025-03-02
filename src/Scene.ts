@@ -15,10 +15,10 @@ import Primitives from './drawables/Primitives';
 import StateManager from './states/StateManager';
 import RenderData from './mesh/RenderData';
 import Rtt from './drawables/Rtt';
-import ShaderLib from './render/ShaderLib';
 import MeshStatic from './mesh/meshStatic/MeshStatic';
 import WebGLCaps from './render/WebGLCaps';
 import MeshDynamic from './mesh/dynamic/MeshDynamic';
+import { ShaderContour, ShaderMatcap } from './render/shaders';
 
 class Scene {
 
@@ -342,7 +342,7 @@ class Scene {
 
     let showContour = this._selectMeshes.length > 0
       && this._showContour
-      && ShaderLib[Enums.Shader.CONTOUR].color[3] > 0.0;
+      && ShaderContour.color[3] > 0.0;
 
     if (showContour) {
       gl.bindFramebuffer(gl.FRAMEBUFFER, this._rttContour.getFramebuffer());
@@ -472,7 +472,6 @@ class Scene {
   loadTextures() {
     var self = this;
     var gl = this._gl;
-    var ShaderMatcap = ShaderLib[Enums.Shader.MATCAP];
 
     var loadTex = function (path, idMaterial) {
       var mat = new Image();

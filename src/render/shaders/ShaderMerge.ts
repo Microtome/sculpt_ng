@@ -1,7 +1,7 @@
 import ShaderBase from './ShaderBase';
 import Attribute from '../Attribute';
 import getOptionsURL from '../../misc/getOptionsURL';
-import { IShaderBase } from './IShaderBase';
+import { IShaderBase } from '.';
 
 interface IShaderMerge {
   FILMIC: boolean

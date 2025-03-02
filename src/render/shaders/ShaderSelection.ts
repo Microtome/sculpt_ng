@@ -1,4 +1,4 @@
-import { IShaderBase } from './IShaderBase';
+import { IShaderBase } from '.';
 import ShaderBase from './ShaderBase';
 
 

@@ -23,7 +23,7 @@ class SculptBase {
   protected _lastMouseY: number = 0.0;
   protected _forceToolMesh;
   protected _lockPosition;
-  protected _radius: number;
+  protected _radius: number = 10;
 
   constructor(main) {
     this._main = main;

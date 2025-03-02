@@ -9,7 +9,7 @@ import pearl from '../../../app/resources/matcaps/pearl.jpg';
 import skin from '../../../app/resources/matcaps/skin.jpg';
 import green from '../../../app/resources/matcaps/green.jpg';
 import white from '../../../app/resources/matcaps/white.jpg';
-import { IShaderBase } from './IShaderBase';
+import { IShaderBase } from '.';
 
 interface IShaderMatcap {
   textures: {},

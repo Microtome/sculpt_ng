@@ -8,8 +8,7 @@ import winter_river from '../../../app/resources/environments/winter_river_1k.pn
 import getOptionsURL from '../../misc/getOptionsURL';
 import ShaderBase from './ShaderBase';
 import pbrGLSL from './glsl/pbr.glsl';
-import { IShaderBase } from './IShaderBase';
-import ImageLoader from '../../misc/ImageLoader';
+import { IShaderBase } from '.';
 
 interface IShaderPBR {
   textures: any,

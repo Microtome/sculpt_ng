@@ -1,4 +1,5 @@
 import Buffer from '../render/Buffer';
+import ShaderLib from '../render/ShaderLib';
 import Shader from '../render/ShaderLib';
 import WebGLCaps from '../render/WebGLCaps';
 
@@ -9,18 +10,19 @@ var singletonBuffer;
  */
 class Rtt {
 
-  _gl;
-  _texture;
-  _depth;
-  _framebuffer;
-  _shaderType;
-  inverseSize;
-  _vertexBuffer;
-  _type;
-  _wrapRepeat;
-  _filterNearest;
+  _gl: WebGLRenderingContext;
+  _texture: WebGLTexture;
+  _depth: WebGLRenderbuffer;
+  _framebuffer: WebGLFramebuffer;
+  // TODO: Have this take a IShaderBase type
+  _shaderType: string;
+  inverseSize: Float32Array;
+  _vertexBuffer: Buffer;
+  _type: number;
+  _wrapRepeat: boolean;
+  _filterNearest: boolean;
 
-  constructor(gl, shaderName = null, depth = gl.createRenderbuffer(), halfFloat = false) {
+  constructor(gl: WebGLRenderingContext, shaderName = null, depth = gl.createRenderbuffer(), halfFloat = false) {
     this._gl = gl; // webgl context
 
     this._texture = gl.createTexture();
@@ -40,27 +42,27 @@ class Rtt {
     this.init();
   }
 
-  getGL() {
+  getGL(): WebGLRenderingContext {
     return this._gl;
   }
 
-  getVertexBuffer() {
+  getVertexBuffer(): Buffer {
     return this._vertexBuffer;
   }
 
-  getFramebuffer() {
+  getFramebuffer(): WebGLFramebuffer {
     return this._framebuffer;
   }
 
-  getTexture() {
+  getTexture(): WebGLTexture {
     return this._texture;
   }
 
-  getDepth() {
+  getDepth(): WebGLRenderbuffer {
     return this._depth;
   }
 
-  getInverseSize() {
+  getInverseSize(): Float32Array {
     return this.inverseSize;
   }
 
@@ -83,7 +85,7 @@ class Rtt {
     this._filterNearest = bool;
   }
 
-  onResize(width, height) {
+  onResize(width: number, height: number) {
     var gl = this._gl;
 
     this.inverseSize[0] = 1.0 / width;
@@ -120,7 +122,7 @@ class Rtt {
   }
 
   render(main) {
-    Shader[this._shaderType].getOrCreate(this._gl).draw(this, main);
+    ShaderLib[this._shaderType].getOrCreate(this._gl).draw(this, main);
   }
 }
 

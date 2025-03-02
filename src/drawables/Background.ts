@@ -1,6 +1,5 @@
 import Buffer from '../render/Buffer';
-import Shader from '../render/ShaderLib';
-import Enums from '../misc/Enums';
+import { ShaderBackground } from '../render/shaders';
 
 /**
  * Handles drawing a background for a 3D scene
@@ -182,7 +181,7 @@ class Background {
   }
 
   render() {
-    Shader[Enums.Shader.BACKGROUND].getOrCreate(this._gl).draw(this);
+    ShaderBackground.getOrCreate(this._gl).draw(this);
   }
 }
 
